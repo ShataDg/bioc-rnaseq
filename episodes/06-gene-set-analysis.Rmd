@@ -1,4 +1,4 @@
----
+c---
 source: Rmd
 title: Gene set enrichment analysis
 teaching: 60
@@ -1164,8 +1164,8 @@ ora = function(genes, gene_sets, universe = NULL) {
 Test on the MSigDB hallmark gene sets:
 
 ```{r}
-HallmakrGeneSets = split(gene_sets$gene_symbol, gene_sets$gs_name)
-df = ora(timeDEgenes, HallmakrGeneSets, rownames(se))
+HallmarkGeneSets = split(gene_sets$gene_symbol, gene_sets$gs_name)
+df = ora(timeDEgenes, HallmarkGeneSets, rownames(se))
 head(df)
 ```
 
@@ -1236,11 +1236,11 @@ section and we compare three different universe settings.
 
 ```{r}
 # all genes in the gene sets collection ~ 4k genes
-df1 = ora(timeDEgenes, HallmakrGeneSets)
+df1 = ora(timeDEgenes, HallmarkGeneSets)
 # all protein-coding genes, ~ 20k genes
-df2 = ora(timeDEgenes, HallmakrGeneSets, rownames(se))
+df2 = ora(timeDEgenes, HallmarkGeneSets, rownames(se))
 # all genes in org.Mm.eg.db ~ 70k genes
-df3 = ora(timeDEgenes, HallmakrGeneSets, 
+df3 = ora(timeDEgenes, HallmarkGeneSets, 
     keys(org.Mm.eg.db, keytype = "SYMBOL"))
 
 # df1, df2, and df3 are in the same row order, 
